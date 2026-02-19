@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olivia Verge — Mechatronics Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FAF6F0;
+      --tangerine: #F08C21;
+      --butter: #F2D88F;
+      --blush: #E36888;
+      --sea: #6698CC;
+      --matcha: #B4B534;
+      --dark: #2A2118;
+      --warm-mid: #8C6A4A;
+      --bg-section: #FDF9F4;
+    }
+
+```
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--dark); font-family: 'Epilogue', sans-serif; overflow-x: hidden; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.1rem 3.5rem;
+  background: rgba(250,246,240,0.93);
+  backdrop-filter: blur(10px);
+  border-bottom: 1.5px solid rgba(227,104,136,0.18);
+}
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--blush); font-style: italic; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: var(--warm-mid); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--blush); }
+
+/* ─── HERO ─── */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 68px; overflow: hidden; }
+
+.hero-left {
+  background: var(--blush);
+  padding: 5rem 3.5rem 4rem;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.hero-left::after { content: '✦'; position: absolute; bottom: 2rem; right: 2.5rem; font-size: 6rem; color: rgba(255,255,255,0.1); line-height: 1; }
+
+.hero-eyebrow { font-size: 0.73rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.72); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+.hero-eyebrow::before { content: ''; width: 24px; height: 1.5px; background: rgba(255,255,255,0.55); }
+
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.2rem, 5.5vw, 5rem); font-weight: 900; line-height: 1.05; color: #fff; margin-bottom: 1.75rem; }
+h1 em { font-style: italic; color: var(--butter); display: block; }
+
+.hero-tagline { color: rgba(255,255,255,0.88); font-size: 0.98rem; line-height: 1.82; margin-bottom: 2.5rem; max-width: 400px; font-weight: 300; }
+
+.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-main { background: #fff; color: var(--blush); padding: 0.9rem 2rem; border-radius: 100px; font-size: 0.82rem; font-weight: 700; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+.btn-main:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+.btn-outline { background: transparent; color: #fff; padding: 0.9rem 2rem; border-radius: 100px; border: 1.5px solid rgba(255,255,255,0.5); font-size: 0.82rem; font-weight: 500; text-decoration: none; transition: background 0.2s; }
+.btn-outline:hover { background: rgba(255,255,255,0.12); }
+
+/* HERO RIGHT */
+.hero-right { background: var(--butter); display: flex; flex-direction: column; justify-content: flex-end; padding: 3rem; position: relative; overflow: hidden; }
+.h-blob1 { position: absolute; top: 2.5rem; right: 2.5rem; width: 140px; height: 140px; border-radius: 50%; background: var(--blush); opacity: 0.35; }
+.h-blob2 { position: absolute; top: 6rem; left: 2.5rem; width: 70px; height: 70px; border-radius: 50%; background: var(--tangerine); opacity: 0.28; }
+.h-blob3 { position: absolute; bottom: 6rem; right: 1.5rem; width: 55px; height: 55px; border-radius: 50%; background: var(--matcha); opacity: 0.3; }
+
+.about-quick { position: relative; z-index: 1; }
+.pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
+.pill { background: #fff; color: var(--dark); padding: 0.5rem 1.1rem; border-radius: 100px; font-size: 0.76rem; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+.pill.blush { background: var(--blush); color: #fff; }
+.pill.sea { background: var(--sea); color: #fff; }
+.pill.matcha { background: var(--matcha); color: #fff; }
+.pill.tangerine { background: var(--tangerine); color: #fff; }
+
+.big-stat { font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 900; color: var(--dark); line-height: 1; }
+.big-stat-label { font-size: 0.76rem; color: var(--warm-mid); font-weight: 500; margin-top: 0.3rem; letter-spacing: 0.06em; }
+
+/* ─── MARQUEE ─── */
+.marquee-strip { background: var(--tangerine); padding: 0.88rem 0; overflow: hidden; white-space: nowrap; }
+.marquee-inner { display: inline-flex; animation: marquee 30s linear infinite; }
+.marquee-item { color: #fff; font-size: 0.73rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 0 2rem; }
+.marquee-item span { color: var(--butter); margin-right: 2rem; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ─── GENERAL SECTIONS ─── */
+section { padding: 5.5rem 3.5rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blush); margin-bottom: 0.45rem; }
+h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3.2vw, 2.65rem); font-weight: 900; margin-bottom: 2.5rem; line-height: 1.15; }
+h2 em { font-style: italic; color: var(--blush); }
+
+/* ─── ABOUT ─── */
+#about { background: var(--bg-section); }
+.about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4.5rem; align-items: center; }
+.about-text p { color: #5A4A38; line-height: 1.9; margin-bottom: 1.2rem; font-size: 0.95rem; font-weight: 300; }
+
+.interest-box { background: var(--blush); border-radius: 18px; padding: 1.4rem 1.75rem; margin-top: 0.25rem; }
+.interest-box-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 0.5rem; }
+.interest-box p { color: #fff !important; font-size: 0.88rem !important; line-height: 1.7 !important; margin: 0 !important; font-weight: 400 !important; }
+
+.about-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.acard { border-radius: 20px; padding: 1.75rem 1.5rem; position: relative; overflow: hidden; }
+.acard.pink  { background: var(--blush); }
+.acard.orange{ background: var(--tangerine); }
+.acard.blue  { background: var(--sea); }
+.acard.green { background: var(--matcha); }
+.acard-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; color: #fff; line-height: 1; }
+.acard-label { font-size: 0.67rem; color: rgba(255,255,255,0.82); font-weight: 500; margin-top: 0.35rem; line-height: 1.4; }
+.acard-deco { position: absolute; bottom: -10px; right: -10px; width: 55px; height: 55px; border-radius: 50%; background: rgba(255,255,255,0.18); }
+
+/* ─── SKILLS ─── */
+#skills { background: var(--cream); }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.skill-group { background: #fff; border-radius: 20px; padding: 1.75rem; border: 1.5px solid rgba(0,0,0,0.06); box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+.skill-group-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.1rem; padding-bottom: 0.7rem; border-bottom: 2px solid; }
+.skill-group.pink   .skill-group-title { color: var(--blush); border-color: var(--blush); }
+.skill-group.orange .skill-group-title { color: var(--tangerine); border-color: var(--tangerine); }
+.skill-group.blue   .skill-group-title { color: var(--sea); border-color: var(--sea); }
+.skill-group.green  .skill-group-title { color: #7a7b20; border-color: var(--matcha); }
+.skill-group.warm   .skill-group-title { color: var(--warm-mid); border-color: var(--warm-mid); }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.stag { padding: 0.38rem 0.85rem; border-radius: 100px; font-size: 0.7rem; font-weight: 600; }
+.skill-group.pink   .stag { background: rgba(227,104,136,0.1); color: var(--blush); }
+.skill-group.orange .stag { background: rgba(240,140,33,0.1); color: var(--tangerine); }
+.skill-group.blue   .stag { background: rgba(102,152,204,0.1); color: var(--sea); }
+.skill-group.green  .stag { background: rgba(180,181,52,0.12); color: #7a7b20; }
+.skill-group.warm   .stag { background: rgba(140,106,74,0.1); color: var(--warm-mid); }
+.skills-grid-2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.25rem; }
+
+/* ─── PROJECTS ─── */
+#projects { background: var(--bg-section); }
+.projects-list { display: flex; flex-direction: column; gap: 1.6rem; }
+.project-card {
+  background: #fff; border-radius: 24px; padding: 2.25rem 2.75rem;
+  display: grid; grid-template-columns: 100px 1fr; gap: 2.25rem; align-items: center;
+  border: 1.5px solid rgba(0,0,0,0.05); box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  transition: transform 0.25s, box-shadow 0.25s; position: relative; overflow: hidden;
+}
+.project-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
+.project-accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; }
+.pc1 .project-accent-bar { background: var(--blush); }
+.pc2 .project-accent-bar { background: var(--tangerine); }
+.pc3 .project-accent-bar { background: var(--sea); }
+.pc4 .project-accent-bar { background: var(--matcha); }
+.project-left { text-align: center; }
+.project-emoji { font-size: 2.6rem; line-height: 1; margin-bottom: 0.5rem; }
+.project-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; line-height: 1; opacity: 0.12; }
+.pc1 .project-num { color: var(--blush); }
+.pc2 .project-num { color: var(--tangerine); }
+.pc3 .project-num { color: var(--sea); }
+.pc4 .project-num { color: var(--matcha); }
+.project-right h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.65rem; line-height: 1.25; }
+.project-right p { color: #7A6A58; font-size: 0.88rem; line-height: 1.78; margin-bottom: 1.15rem; font-weight: 300; }
+.project-tags-row { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.ptag { font-size: 0.66rem; font-weight: 600; padding: 0.32rem 0.78rem; border-radius: 100px; background: var(--cream); color: var(--warm-mid); border: 1px solid rgba(0,0,0,0.08); }
+.award-tag { display: inline-flex; align-items: center; gap: 0.35rem; background: var(--butter); color: var(--dark); border-radius: 100px; font-size: 0.66rem; font-weight: 700; padding: 0.32rem 0.82rem; margin-bottom: 0.65rem; }
+
+/* ─── EXPERIENCE ─── */
+#experience { background: var(--cream); }
+.exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.exp-card { background: #fff; border-radius: 20px; padding: 1.9rem 2.1rem; border: 1.5px solid rgba(0,0,0,0.06); position: relative; box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
+.exp-card.full-width { grid-column: span 2; }
+.exp-dot { width: 11px; height: 11px; border-radius: 50%; position: absolute; top: 1.9rem; right: 2rem; }
+.ec1 .exp-dot { background: var(--blush); }
+.ec2 .exp-dot { background: var(--tangerine); }
+.ec3 .exp-dot { background: var(--sea); }
+.ec4 .exp-dot { background: var(--matcha); }
+.exp-date { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-mid); margin-bottom: 0.45rem; }
+.exp-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.18rem; }
+.exp-company { font-size: 0.76rem; color: var(--blush); font-weight: 600; margin-bottom: 0.9rem; }
+.exp-card ul { list-style: none; }
+.exp-card ul li { font-size: 0.83rem; color: #7A6A58; padding-left: 1.2rem; position: relative; margin-bottom: 0.42rem; line-height: 1.65; font-weight: 300; }
+.exp-card ul li::before { content: '✦'; position: absolute; left: 0; font-size: 0.5rem; color: var(--blush); top: 0.28rem; }
+
+.edu-section { margin-top: 3rem; }
+.edu-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.1rem; }
+.edu-card { background: var(--bg-section); border-radius: 18px; padding: 1.65rem 1.9rem; border: 1.5px solid rgba(0,0,0,0.06); }
+.edu-card h3 { font-family: 'Playfair Display', serif; font-size: 0.98rem; font-weight: 700; margin-bottom: 0.28rem; }
+.edu-degree { font-size: 0.76rem; color: var(--blush); font-weight: 600; margin-bottom: 0.38rem; }
+.edu-date { font-size: 0.67rem; color: var(--warm-mid); letter-spacing: 0.06em; }
+.edu-notes { margin-top: 0.65rem; font-size: 0.8rem; color: #7A6A58; line-height: 1.65; font-weight: 300; }
+
+/* ─── AWARDS ─── */
+#awards { background: var(--bg-section); }
+.awards-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
+.award-card { background: #fff; border-radius: 18px; padding: 1.75rem; border: 1.5px solid rgba(0,0,0,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.04); transition: transform 0.2s; }
+.award-card:hover { transform: translateY(-3px); }
+.award-icon { font-size: 2rem; margin-bottom: 0.75rem; line-height: 1; }
+.award-card h3 { font-family: 'Playfair Display', serif; font-size: 0.98rem; font-weight: 700; margin-bottom: 0.3rem; line-height: 1.3; }
+.award-issuer { font-size: 0.72rem; color: var(--blush); font-weight: 600; margin-bottom: 0.5rem; }
+.award-desc { font-size: 0.8rem; color: #7A6A58; line-height: 1.65; font-weight: 300; }
+.award-date { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-mid); margin-top: 0.75rem; }
+
+.certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem; }
+.cert-chip { background: #fff; border-radius: 14px; padding: 1.1rem 1.25rem; border: 1.5px solid rgba(0,0,0,0.06); box-shadow: 0 2px 12px rgba(0,0,0,0.04); display: flex; flex-direction: column; gap: 0.3rem; }
+.cert-chip-title { font-size: 0.78rem; font-weight: 600; line-height: 1.35; color: var(--dark); }
+.cert-chip-issuer { font-size: 0.67rem; color: var(--warm-mid); }
+.cert-chip-date { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blush); margin-top: 0.1rem; }
+
+/* ─── BEYOND ─── */
+#beyond { background: var(--cream); }
+.beyond-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.beyond-card { background: #fff; border-radius: 18px; padding: 1.75rem 2rem; border: 1.5px solid rgba(0,0,0,0.06); box-shadow: 0 4px 16px rgba(0,0,0,0.04); display: flex; gap: 1.25rem; align-items: flex-start; }
+.beyond-emoji { font-size: 2.2rem; line-height: 1; flex-shrink: 0; margin-top: 0.1rem; }
+.beyond-card h3 { font-family: 'Playfair Display', serif; font-size: 0.98rem; font-weight: 700; margin-bottom: 0.2rem; }
+.beyond-org { font-size: 0.73rem; color: var(--blush); font-weight: 600; margin-bottom: 0.55rem; }
+.beyond-card p { font-size: 0.82rem; color: #7A6A58; line-height: 1.65; font-weight: 300; }
+.beyond-date { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-mid); margin-top: 0.5rem; }
+
+/* ─── CONTACT ─── */
+#contact { background: var(--blush); text-align: center; }
+#contact h2 { color: #fff; }
+#contact h2 em { color: var(--butter); }
+#contact p { color: rgba(255,255,255,0.85); font-size: 0.98rem; line-height: 1.8; margin-bottom: 2.5rem; font-weight: 300; }
+.contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.btn-white { background: #fff; color: var(--blush); padding: 0.9rem 2.2rem; border-radius: 100px; font-size: 0.82rem; font-weight: 700; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+.btn-trans { background: transparent; color: #fff; padding: 0.9rem 2.2rem; border-radius: 100px; border: 1.5px solid rgba(255,255,255,0.5); font-size: 0.82rem; font-weight: 500; text-decoration: none; transition: background 0.2s; }
+.btn-trans:hover { background: rgba(255,255,255,0.12); }
+
+/* ─── FOOTER ─── */
+footer { background: var(--dark); padding: 1.9rem 3.5rem; display: flex; justify-content: space-between; align-items: center; }
+.footer-logo { font-family: 'Playfair Display', serif; font-style: italic; color: var(--butter); font-size: 1rem; }
+footer p { font-size: 0.68rem; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; }
+
+/* ─── ANIMATIONS ─── */
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 960px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1rem; font-size: 0.72rem; }
+  section { padding: 4rem 1.5rem; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { min-height: 240px; padding: 2rem 1.5rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .skills-grid, .skills-grid-2 { grid-template-columns: 1fr; }
+  .project-card { grid-template-columns: 1fr; gap: 1rem; padding: 1.75rem; }
+  .project-left { display: none; }
+  .exp-grid { grid-template-columns: 1fr; }
+  .exp-card.full-width { grid-column: span 1; }
+  .edu-row { grid-template-columns: 1fr; }
+  .awards-grid { grid-template-columns: 1fr 1fr; }
+  .certs-grid { grid-template-columns: 1fr 1fr; }
+  .beyond-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+@media (max-width: 600px) {
+  .awards-grid, .certs-grid { grid-template-columns: 1fr; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <div class="nav-logo">Olivia Verge</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#beyond">Beyond</a></li>
+    <li><a href="#contact">Say Hi ✦</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Mechatronics Engineering · MUN</div>
+    <h1>Olivia <em>Verge.</em></h1>
+    <p class="hero-tagline">
+      Engineering student passionate about biomedical robotics — building systems
+      that move, sense, and improve people's lives. Based in St. John's, NL.
+    </p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn-main">See My Work</a>
+      <a href="mailto:obverge@mun.ca" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="h-blob1"></div>
+    <div class="h-blob2"></div>
+    <div class="h-blob3"></div>
+    <div class="about-quick">
+      <div class="pill-row">
+        <span class="pill blush">Biomedical Robotics</span>
+        <span class="pill sea">SolidWorks</span>
+        <span class="pill matcha">Arduino</span>
+        <span class="pill tangerine">3D Printing</span>
+        <span class="pill">Python</span>
+        <span class="pill">NPI</span>
+        <span class="pill blush">EN · FR</span>
+      </div>
+      <div class="big-stat">3.5</div>
+      <div class="big-stat-label">GPA · Memorial University</div>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-inner">
+    <span class="marquee-item">SolidWorks <span>✦</span></span>
+    <span class="marquee-item">Arduino <span>✦</span></span>
+    <span class="marquee-item">3D Printing <span>✦</span></span>
+    <span class="marquee-item">Python <span>✦</span></span>
+    <span class="marquee-item">Biomedical Robotics <span>✦</span></span>
+    <span class="marquee-item">NPI <span>✦</span></span>
+    <span class="marquee-item">Prosthetics <span>✦</span></span>
+    <span class="marquee-item">MATLAB <span>✦</span></span>
+    <span class="marquee-item">ECOs & BOMs <span>✦</span></span>
+    <span class="marquee-item">Hockey Captain <span>✦</span></span>
+    <span class="marquee-item">SolidWorks <span>✦</span></span>
+    <span class="marquee-item">Arduino <span>✦</span></span>
+    <span class="marquee-item">3D Printing <span>✦</span></span>
+    <span class="marquee-item">Python <span>✦</span></span>
+    <span class="marquee-item">Biomedical Robotics <span>✦</span></span>
+    <span class="marquee-item">NPI <span>✦</span></span>
+    <span class="marquee-item">Prosthetics <span>✦</span></span>
+    <span class="marquee-item">MATLAB <span>✦</span></span>
+    <span class="marquee-item">ECOs & BOMs <span>✦</span></span>
+    <span class="marquee-item">Hockey Captain <span>✦</span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">About Me</div>
+    <h2>Science brain.<br><em>Builder's hands.</em></h2>
+    <div class="about-grid fade-up">
+      <div class="about-text">
+        <p>
+          I started out in biomedical science at the University of Ottawa —
+          fascinated by how living systems work. That curiosity led me to mechatronics engineering
+          at Memorial University, where I could actually build systems that respond, adapt, and
+          interface with the world.
+        </p>
+        <p>
+          I love working on problems that don't fit neatly into one discipline. Whether it's
+          programming sensor logic, designing an enclosure in CAD, or coordinating a team through
+          a real industry brief — I bring a scientific approach and a creative eye.
+        </p>
+        <p>
+          Outside of projects, I serve as VP Junior Academic for the MUN Engineering Society and
+          work as a Resident Assistant. I'm fluent in both English and French.
+        </p>
+        <div class="interest-box">
+          <div class="interest-box-label">Passionate About</div>
+          <p>Biomedical robotics · Prosthetics & assistive devices · Human-centred design · Rehabilitation technology</p>
+        </div>
+      </div>
+      <div class="about-cards">
+        <div class="acard pink">
+          <div class="acard-num">3.5</div>
+          <div class="acard-label">GPA / 4.0</div>
+          <div class="acard-deco"></div>
+        </div>
+        <div class="acard orange">
+          <div class="acard-num">4+</div>
+          <div class="acard-label">Projects Built</div>
+          <div class="acard-deco"></div>
+        </div>
+        <div class="acard blue">
+          <div class="acard-num">5+</div>
+          <div class="acard-label">Awards & Honours</div>
+          <div class="acard-deco"></div>
+        </div>
+        <div class="acard green">
+          <div class="acard-num">2</div>
+          <div class="acard-label">Languages</div>
+          <div class="acard-deco"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">What I Know</div>
+    <h2>My <em>Toolkit</em></h2>
+    <div class="skills-grid fade-up">
+      <div class="skill-group pink">
+        <div class="skill-group-title">Design & Manufacturing</div>
+        <div class="skill-tags">
+          <span class="stag">CAD (SolidWorks, Onshape)</span>
+          <span class="stag">SLA & FDM 3D Printing</span>
+          <span class="stag">Rapid Prototyping</span>
+          <span class="stag">ECOs & BOMs</span>
+          <span class="stag">Assembly Drawings</span>
+        </div>
+      </div>
+      <div class="skill-group orange">
+        <div class="skill-group-title">Electrical & Control</div>
+        <div class="skill-tags">
+          <span class="stag">Arduino</span>
+          <span class="stag">Soldering</span>
+          <span class="stag">P-Spice</span>
+          <span class="stag">Circuit Analysis</span>
+          <span class="stag">Sensor Integration</span>
+        </div>
+      </div>
+      <div class="skill-group blue">
+        <div class="skill-group-title">Programming & Software</div>
+        <div class="skill-tags">
+          <span class="stag">Python</span>
+          <span class="stag">C++</span>
+          <span class="stag">MATLAB</span>
+          <span class="stag">SQL</span>
+          <span class="stag">GitHub</span>
+          <span class="stag">Arena PLM</span>
+          <span class="stag">VS Code</span>
+        </div>
+      </div>
+    </div>
+    <div class="skills-grid-2 fade-up">
+      <div class="skill-group green">
+        <div class="skill-group-title">Professional Skills</div>
+        <div class="skill-tags">
+          <span class="stag">NPI Processes</span>
+          <span class="stag">Technical Documentation</span>
+          <span class="stag">Project Management</span>
+          <span class="stag">Cross-functional Teams</span>
+          <span class="stag">Client Communication</span>
+          <span class="stag">English & French</span>
+        </div>
+      </div>
+      <div class="skill-group warm">
+        <div class="skill-group-title">Also Familiar With</div>
+        <div class="skill-tags">
+          <span class="stag">Java</span>
+          <span class="stag">Graphic Design</span>
+          <span class="stag">Microsoft Office Suite</span>
+          <span class="stag">Cursor AI</span>
+          <span class="stag">Social Media Management</span>
+        </div>
+      </div>
+      <div class="skill-group blue">
+        <div class="skill-group-title">Safety & Compliance</div>
+        <div class="skill-tags">
+          <span class="stag">WHMIS 2015</span>
+          <span class="stag">First Aid / CPR / AED</span>
+          <span class="stag">Mental Health First Aid</span>
+          <span class="stag">Fire Warden</span>
+          <span class="stag">Smart Serve Ontario</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label">What I've Built</div>
+    <h2>Featured <em>Projects</em></h2>
+    <div class="projects-list">
+
+```
+  <div class="project-card pc1 fade-up">
+    <div class="project-accent-bar"></div>
+    <div class="project-left">
+      <div class="project-emoji">🦾</div>
+      <div class="project-num">01</div>
+    </div>
+    <div class="project-right">
+      <h3>One-Hand Adaptive Nintendo Switch Controller</h3>
+      <p>Modeled, 3D-printed, and assembled a custom enclosure integrating rewired electronics to create an accessibility-focused one-handed controller. Applied CAD modeling, rapid prototyping, and electronics integration to deliver a user-centered solution with full technical documentation.</p>
+      <div class="project-tags-row">
+        <span class="ptag">3D Printing</span>
+        <span class="ptag">SolidWorks</span>
+        <span class="ptag">Electronics</span>
+        <span class="ptag">Accessibility</span>
+        <span class="ptag">Documentation</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card pc2 fade-up">
+    <div class="project-accent-bar"></div>
+    <div class="project-left">
+      <div class="project-emoji">⛅</div>
+      <div class="project-num">02</div>
+    </div>
+    <div class="project-right">
+      <h3>Automated Weather-Detecting Sunroof</h3>
+      <p>Designed and programmed an Arduino-based system integrating weather sensors and actuators to detect rain, humidity, and light — automatically controlling a sunroof mechanism in real time. Validated through real-time testing and data analysis.</p>
+      <div class="project-tags-row">
+        <span class="ptag">Arduino</span>
+        <span class="ptag">Sensors & Actuators</span>
+        <span class="ptag">Control Logic</span>
+        <span class="ptag">C++</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card pc3 fade-up">
+    <div class="project-accent-bar"></div>
+    <div class="project-left">
+      <div class="project-emoji">🏆</div>
+      <div class="project-num">03</div>
+    </div>
+    <div class="project-right">
+      <div class="award-tag">🏆 1st Place — uOttawa Design Day 2024</div>
+      <h3>AMBICO Adjustable Door Cutting Jig</h3>
+      <p>Led a student engineering team to design and prototype a custom jig for AMBICO Inc. as part of GNG1103. Developed CAD models, assembly drawings, and a production-ready solution validated for manufacturability. Won the competitive industry pitch before judges and faculty.</p>
+      <div class="project-tags-row">
+        <span class="ptag">CAD</span>
+        <span class="ptag">Prototyping</span>
+        <span class="ptag">Team Lead</span>
+        <span class="ptag">Industry Client</span>
+        <span class="ptag">CEED Workshop</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card pc4 fade-up">
+    <div class="project-accent-bar"></div>
+    <div class="project-left">
+      <div class="project-emoji">⚙️</div>
+      <div class="project-num">04</div>
+    </div>
+    <div class="project-right">
+      <h3>Fastener STL/STEP File Generator — Mysa</h3>
+      <p>Built an internal tool at Mysa that automatically generates STL and STEP files for fasteners by parsing text descriptions using Cursor AI. Reduced manual engineering effort and improved accuracy across hardware documentation workflows during the production co-op term.</p>
+      <div class="project-tags-row">
+        <span class="ptag">Python</span>
+        <span class="ptag">Cursor AI</span>
+        <span class="ptag">STL / STEP</span>
+        <span class="ptag">Internal Tooling</span>
+        <span class="ptag">SolidWorks</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Where I've Been</div>
+    <h2>Experience &amp; <em>Education</em></h2>
+    <div class="exp-grid fade-up">
+
+```
+  <div class="exp-card ec1 full-width">
+    <div class="exp-dot"></div>
+    <div class="exp-date">Jan 2026 – Present</div>
+    <h3>Production Co-op Student</h3>
+    <div class="exp-company">Mysa · St. John's, NL · On-site</div>
+    <ul>
+      <li>Supporting hardware product development including ECOs and manufacturing documentation using SolidWorks and Arena, maintaining engineering drawings and BOMs for accurate product releases and certification readiness.</li>
+      <li>Assisting with New Product Introduction (NPI) through research, product reviews, and hands-on prototyping using SLA and FDM 3D printers while collaborating with cross-functional teams.</li>
+      <li>Built an internal app to auto-generate STL and STEP files for fasteners by parsing descriptions using Cursor AI — streamlining engineering documentation workflows.</li>
+    </ul>
+  </div>
+
+  <div class="exp-card ec2">
+    <div class="exp-dot"></div>
+    <div class="exp-date">May – Aug 2025</div>
+    <h3>Engineering Intern</h3>
+    <div class="exp-company">Wooden Walls Distilling · St. John's, NL</div>
+    <ul>
+      <li>Investigated and proposed automation upgrades including motorized valves and sensors to optimize distillation efficiency.</li>
+      <li>Monitored temperature, pressure, and flow variables; sourced technical components and prototyped upgrades.</li>
+      <li>Collaborated with a senior engineering student on day-to-day plant operations and process control fundamentals.</li>
+    </ul>
+  </div>
+
+  <div class="exp-card ec3">
+    <div class="exp-dot"></div>
+    <div class="exp-date">Sep 2025 – Present</div>
+    <h3>Resident Assistant</h3>
+    <div class="exp-company">Memorial University Residences · Contract Part-time</div>
+    <ul>
+      <li>Developing leadership, conflict resolution, and crisis management skills in a residential community.</li>
+      <li>Designing and implementing community initiatives that improve student engagement and belonging.</li>
+    </ul>
+  </div>
+
+  <div class="exp-card ec4">
+    <div class="exp-dot"></div>
+    <div class="exp-date">Jan 2025 – Present</div>
+    <h3>Jr. VP Academic</h3>
+    <div class="exp-company">Memorial University Engineering Society "B"</div>
+    <ul>
+      <li>Advocating for first- and second-year engineering students at the faculty level.</li>
+      <li>Organising academic events, study resources, and student support initiatives.</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="edu-section fade-up">
+  <div class="section-label">Education</div>
+  <div class="edu-row">
+    <div class="edu-card">
+      <h3>Memorial University of Newfoundland</h3>
+      <div class="edu-degree">B.Eng. Mechatronics Engineering</div>
+      <div class="edu-date">Sep 2024 – Apr 2029 · St. John's, NL</div>
+      <div class="edu-notes">GPA 3.5 &nbsp;·&nbsp; Jr. VP Academic, MUSE &nbsp;·&nbsp; Mechatronics Class Representative</div>
+    </div>
+    <div class="edu-card">
+      <h3>University of Ottawa</h3>
+      <div class="edu-degree">Biomedical Science (incomplete)</div>
+      <div class="edu-date">Ottawa, ON</div>
+      <div class="edu-notes">Built a life-science foundation before following my passion into engineering. Competed in GNG1103 and won uOttawa Design Day 2024 with the AMBICO project.</div>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- AWARDS & CERTS -->
+
+<section id="awards">
+  <div class="section-inner">
+    <div class="section-label">Recognition</div>
+    <h2>Awards &amp; <em>Achievements</em></h2>
+    <div class="awards-grid fade-up">
+
+```
+  <div class="award-card">
+    <div class="award-icon">🏛️</div>
+    <h3>Dr. K. Brian Johnston Award</h3>
+    <div class="award-issuer">Memorial University Student Residences</div>
+    <p class="award-desc">Distinguished award for a resident who, as an executive house council member, demonstrates outstanding commitment and leadership while improving the lives of fellow residents.</p>
+    <div class="award-date">Apr 2025</div>
+  </div>
+
+  <div class="award-card">
+    <div class="award-icon">🏆</div>
+    <h3>University of Ottawa Design Day Winner</h3>
+    <div class="award-issuer">uOttawa CEED — Centre for Entrepreneurship & Engineering Design</div>
+    <p class="award-desc">Design contest among GNG1103 students to manufacture prototypes for AMBICO windows and doors — led team to deliver the best prototype for their facility and working conditions.</p>
+    <div class="award-date">May 2024</div>
+  </div>
+
+  <div class="award-card">
+    <div class="award-icon">🧮</div>
+    <h3>CEMC Fermat Math Competition School Champion</h3>
+    <div class="award-issuer">Waterloo Centre for Education in Mathematics & Computing</div>
+    <p class="award-desc">Top score at Sacred Heart High School in the Fermat math competition.</p>
+    <div class="award-date">Apr 2022</div>
+  </div>
+
+  <div class="award-card">
+    <div class="award-icon">🥇</div>
+    <h3>CEMC Cayley Math Competition School Champion</h3>
+    <div class="award-issuer">Waterloo Centre for Education in Mathematics & Computing</div>
+    <p class="award-desc">Top score at Sacred Heart High School in the Cayley math competition.</p>
+    <div class="award-date">Apr 2021</div>
+  </div>
+
+  <div class="award-card">
+    <div class="award-icon">🏒</div>
+    <h3>Hockey Gives Blood Captain</h3>
+    <div class="award-issuer">WJAHL — Women's Jr. A Hockey League</div>
+    <p class="award-desc">Named Blood Captain for the inaugural season of Newfoundland's Women's Jr. A Hockey League, leading a community health initiative alongside the sport.</p>
+    <div class="award-date">2024 – 2025</div>
+  </div>
+
+  <div class="award-card">
+    <div class="award-icon">🎓</div>
+    <h3>Residence Awards Gala — Leadership Recognition</h3>
+    <div class="award-issuer">Memorial University, 2025 Gala</div>
+    <p class="award-desc">Recognised at the 2025 Residence Awards Gala for outstanding leadership and community contribution as a Resident Assistant.</p>
+    <div class="award-date">Apr 2025</div>
+  </div>
+
+</div>
+
+<div style="margin-top: 3rem;">
+  <div class="section-label" style="margin-bottom:1.1rem;">Licences & Certifications</div>
+  <div class="certs-grid fade-up" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="cert-chip">
+      <div class="cert-chip-title">Onshape Intro to Assembly Design</div>
+      <div class="cert-chip-issuer">Onshape by PTC</div>
+      <div class="cert-chip-date">Mar 2024</div>
+    </div>
+    <div class="cert-chip">
+      <div class="cert-chip-title">Onshape Intro to Part Design</div>
+      <div class="cert-chip-issuer">Onshape by PTC</div>
+      <div class="cert-chip-date">Feb 2024</div>
+    </div>
+    <div class="cert-chip">
+      <div class="cert-chip-title">Manufacturing Training Centre Workshop</div>
+      <div class="cert-chip-issuer">CEED — Centre for Entrepreneurship & Engineering Design</div>
+      <div class="cert-chip-date">Feb 2024</div>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- BEYOND ENGINEERING -->
+
+<section id="beyond">
+  <div class="section-inner">
+    <div class="section-label">The Full Picture</div>
+    <h2>Beyond <em>Engineering</em></h2>
+    <div class="beyond-grid fade-up">
+
+```
+  <div class="beyond-card">
+    <div class="beyond-emoji">🏒</div>
+    <div>
+      <h3>League Member & Blood Captain</h3>
+      <div class="beyond-org">WJAHL — Women's Jr. A Hockey League</div>
+      <p>Member of the inaugural season of Newfoundland's Women's Jr. A Hockey League. Named Hockey Gives Blood Captain, leading a community health initiative for the team.</p>
+      <div class="beyond-date">Oct 2024 – Mar 2025</div>
+    </div>
+  </div>
+
+  <div class="beyond-card">
+    <div class="beyond-emoji">🎗️</div>
+    <div>
+      <h3>Logistics Co-Chair</h3>
+      <div class="beyond-org">Relay for Life UOttawa — Canadian Cancer Society</div>
+      <p>Helped organise and fundraise for a 7-hour event supporting the Canadian Cancer Society.</p>
+      <div class="beyond-date">Sep 2023 – Apr 2024</div>
+    </div>
+  </div>
+
+  <div class="beyond-card">
+    <div class="beyond-emoji">🏫</div>
+    <div>
+      <h3>Engineering Open House Tour Guide</h3>
+      <div class="beyond-org">Faculty of Engineering & Applied Science, MUN</div>
+      <p>Led tours of facilities, labs, and classrooms for prospective students, parents, and guests — explaining engineering disciplines and answering questions about the faculty.</p>
+      <div class="beyond-date">Memorial University</div>
+    </div>
+  </div>
+
+  <div class="beyond-card">
+    <div class="beyond-emoji">📱</div>
+    <div>
+      <h3>Social Media Manager</h3>
+      <div class="beyond-org">StittsvilleCentral.ca</div>
+      <p>Created posts and stories to promote Stittsville news and local events across social media platforms.</p>
+      <div class="beyond-date">Jul – Nov 2023</div>
+    </div>
+  </div>
+
+  <div class="beyond-card">
+    <div class="beyond-emoji">🏒</div>
+    <div>
+      <h3>Varsity Girls Hockey Captain</h3>
+      <div class="beyond-org">Sacred Heart High School</div>
+      <p>Led the varsity girls hockey team to win the district championship and advance to OFSSA provincials.</p>
+      <div class="beyond-date">Nov 2022 – Feb 2023</div>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label" style="color:rgba(255,255,255,0.6); margin-bottom:0.45rem;">Say Hello</div>
+    <h2>Let's build something <em>great.</em></h2>
+    <p>
+      Open to co-op opportunities, internships, and conversations about biomedical robotics.<br>
+      I'm always open to connecting — whether to share ideas, collaborate, or learn from new perspectives.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:obverge@mun.ca" class="btn-white">obverge@mun.ca</a>
+      <a href="https://www.linkedin.com/in/olivia-verge" target="_blank" class="btn-trans">LinkedIn</a>
+      <a href="tel:6136984763" class="btn-trans">(613) 698-4763</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-logo">Olivia Verge</div>
+  <p>© 2026 · Mechatronics Engineering · Memorial University, St. John's NL</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

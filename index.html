@@ -184,7 +184,7 @@
     .hero{grid-template-columns:1fr;padding:100px 24px 40px;gap:30px}.hero-content{grid-column:1}.photo-wrap{padding-right:0;justify-self:center}
     .photo-bubble{width:200px;height:200px}
     .gateways{grid-template-columns:1fr;padding:0 24px 10px;gap:20px}
-    .trace-area{grid-template-columns:1fr;padding:0 24px}
+    .trace-area{display:none}
     .skills-wrap,.exp-wrap{padding:0 24px 40px}
     .proj-wrap{padding:30px 24px 40px}
     .proj-grid{grid-template-columns:1fr}
@@ -242,18 +242,6 @@
   <div class="gateway-btn" data-target="proj-section">
     <div class="btn-label"><div class="btn-title">A Peek At The Code</div></div>
     <img src="card-code.png" alt="Code editor"/>
-  </div>
-</div>
-
-<!-- Behind the Brains -->
-<div class="about-wrap" id="about-me">
-  <h2 class="about-title">Behind the Brains</h2>
-  <p class="about-text">When I'm not soldering circuits or debugging code, you'll find me on the ice playing hockey, exploring the Newfoundland coastline, chasing adventure wherever I can find it, or hanging out with my dog. I'm endlessly curious, love a good challenge, and believe the best engineers are the ones who never stop learning from the world around them.</p>
-  <div class="about-collage">
-    <div class="about-photo" style="transition-delay:0s"><img src="about-1.jpg" alt="Snowman with my dog"/></div>
-    <div class="about-photo" style="transition-delay:.1s"><img src="about-2.jpg" alt="Playing hockey"/></div>
-    <div class="about-photo" style="transition-delay:.2s"><img src="about-3.jpg" alt="Ziplining adventure"/></div>
-    <div class="about-photo" style="transition-delay:.3s"><img src="about-4.jpg" alt="Exploring the coast"/></div>
   </div>
 </div>
 
@@ -467,6 +455,18 @@
   </div>
 </div>
 
+<!-- Behind the Brains -->
+<div class="about-wrap" id="about-me">
+  <h2 class="about-title">Behind the Brains</h2>
+  <p class="about-text">When I'm not soldering circuits or debugging code, you'll find me on the ice playing hockey, exploring the Newfoundland coastline, chasing adventure wherever I can find it, or hanging out with my dog. I'm endlessly curious, love a good challenge, and believe the best engineers are the ones who never stop learning from the world around them.</p>
+  <div class="about-collage">
+    <div class="about-photo" style="transition-delay:0s"><img src="about-1.jpg" alt="Snowman with my dog"/></div>
+    <div class="about-photo" style="transition-delay:.1s"><img src="about-2.jpg" alt="Playing hockey"/></div>
+    <div class="about-photo" style="transition-delay:.2s"><img src="about-3.jpg" alt="Ziplining adventure"/></div>
+    <div class="about-photo" style="transition-delay:.3s"><img src="about-4.jpg" alt="Exploring the coast"/></div>
+  </div>
+</div>
+
 <!-- Contact -->
 <div class="contact-wrap">
   <div class="contact-card">
@@ -495,6 +495,20 @@
   const traceMap = {0:'trace-col-1',1:'trace-col-2',2:'trace-col-3'};
   let openIdx = -1;
   const animated = {};
+  const sectionHome = document.querySelector('.trace-area').parentNode;
+  const sectionAnchors = sections.map(id=>document.getElementById(id).nextSibling);
+
+  function isMobile(){return window.innerWidth<=900;}
+
+  var traceArea=document.querySelector('.trace-area');
+  function returnSections(){
+    var sk=document.getElementById('skills-section');
+    var ex=document.getElementById('exp-section');
+    var pr=document.getElementById('proj-section');
+    traceArea.after(pr);
+    traceArea.after(ex);
+    traceArea.after(sk);
+  }
 
   function resetAll(){
     btns.forEach(b=>b.classList.remove('active'));
@@ -507,6 +521,7 @@
     });
     var pcbSvg=document.querySelector('.trace-col-2 .pcb-svg');
     if(pcbSvg)pcbSvg.innerHTML='';
+    returnSections();
   }
 
   function openSection(idx){
@@ -520,10 +535,15 @@
     const section=document.getElementById(sectionId);
     const traceClass=traceMap[idx];
     const traceEl=document.querySelector('.'+traceClass);
+    const mobile=isMobile();
 
     btn.classList.add('active');
 
-    if(traceEl && traceEl.children.length>0){
+    if(mobile){
+      btn.after(section);
+    }
+
+    if(!mobile && traceEl && traceEl.children.length>0){
       if(traceEl.querySelector('.pcb-svg')){
         traceEl.style.height='120px';
       } else {
@@ -533,7 +553,7 @@
       traceEl.classList.add('active');
     }
 
-    const delay=idx===2?200:700;
+    const delay=mobile?100:(idx===2?200:700);
     setTimeout(()=>{
       section.classList.add('revealed');
       setTimeout(()=>btn.scrollIntoView({behavior:'smooth',block:'start'}),100);
@@ -546,7 +566,7 @@
         },200);
       } else {
         if(sectionId==='skills-section')document.querySelectorAll('.skill-row').forEach(g=>g.classList.add('visible'));
-        else if(sectionId==='exp-section'){document.querySelectorAll('.exp-entry,.edu-entry').forEach(e=>e.classList.add('visible'));drawPcbRoutes();}
+        else if(sectionId==='exp-section'){document.querySelectorAll('.exp-entry,.edu-entry').forEach(e=>e.classList.add('visible'));if(!mobile)drawPcbRoutes();}
         else if(sectionId==='proj-section')document.querySelectorAll('.proj-card').forEach(c=>c.classList.add('visible'));
       }
     },delay);
@@ -601,7 +621,7 @@
     });
   }
   function animateExp(){
-    drawPcbRoutes();
+    if(!isMobile())drawPcbRoutes();
     document.querySelectorAll('.edu-entry,.exp-entry').forEach((e,i)=>{
       setTimeout(()=>e.classList.add('visible'),80+i*140);
     });

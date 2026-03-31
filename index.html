@@ -145,6 +145,8 @@
   .ptag{font-size:.64rem;padding:2px 8px;border-radius:100px;background:rgba(255,255,255,.05);color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.06)}
   .proj-gh{display:inline-block;margin-top:10px;font-size:.68rem;font-weight:500;color:rgba(255,255,255,.35);transition:color .2s;text-decoration:none}
   .proj-gh:hover{color:var(--accent)}
+  .proj-case{display:inline-block;margin-top:10px;margin-left:14px;font-size:.68rem;font-weight:500;color:var(--accent);padding:3px 12px;border:1px solid var(--accent);border-radius:100px;text-decoration:none;transition:all .2s}
+  .proj-case:hover{background:var(--accent);color:#fff}
   .proj-detail{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
   .proj-card.expanded .proj-detail{max-height:600px}
   .proj-detail-inner{padding:0 18px 16px;border-top:1px solid rgba(255,255,255,.08);margin-top:2px}
@@ -337,17 +339,22 @@
             <p>ROS2 pub/sub suite that processes 6-DOF IMU telemetry to detect high-risk biomechanical impacts, with a live JavaScript dashboard and automated alerts.</p>
             <div class="proj-tags"><span class="ptag">ROS2</span><span class="ptag">Python</span><span class="ptag">WebSockets</span><span class="ptag">IMU</span></div>
           </div>
-          <div class="proj-detail"><div class="proj-detail-inner"><div class="proj-code"><span class="cm"># ClearHead - concussion risk detection</span>
-<span class="kw">class</span> <span class="cl">ImpactDetector</span>(<span class="cl">Node</span>):
-    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="vr">self</span>):
-        <span class="fn">super</span>().<span class="fn">__init__</span>(<span class="st">"impact_detector"</span>)
-        <span class="vr">self</span>.sub = <span class="vr">self</span>.<span class="fn">create_subscription</span>(
-            <span class="cl">Imu</span>, <span class="st">"/imu/data"</span>, <span class="vr">self</span>.<span class="fn">on_imu</span>)
+          <div class="proj-detail"><div class="proj-detail-inner"><div class="proj-code"><span class="cm"># the problem</span>
+<span class="vr">gap</span> = <span class="st">"Youth and amateur athletes lack real-time head impact monitoring"</span>
+<span class="vr">goal</span> = <span class="st">"Democratize access to brain health data with affordable sensors"</span>
 
-    <span class="kw">def</span> <span class="fn">on_imu</span>(<span class="vr">self</span>, <span class="vr">msg</span>):
-        <span class="vr">g_force</span> = <span class="fn">compute_magnitude</span>(<span class="vr">msg</span>.linear_acceleration)
-        <span class="kw">if</span> <span class="vr">g_force</span> &gt; <span class="nm">THRESHOLD</span>:
-            <span class="fn">publish_alert</span>(<span class="vr">g_force</span>)</div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a></div></div>
+<span class="cm"># how it works</span>
+<span class="kw">def</span> <span class="fn">pipeline</span>():
+    <span class="fn">poll_sensors</span>(<span class="st">"accelerometer"</span>, <span class="st">"gyroscope"</span>)  <span class="cm"># 6-DOF IMU, 3-axis</span>
+    <span class="fn">filter_noise</span>(<span class="st">"running, jumping, normal movement"</span>)
+    <span class="vr">pla</span> = <span class="fn">calc_peak_linear_acceleration</span>()
+    <span class="kw">if</span> <span class="vr">pla</span> &gt; <span class="nm">threshold</span>:
+        <span class="fn">trigger_alert</span>(<span class="st">"GREEN / YELLOW / RED"</span>)
+        <span class="fn">log_to_dashboard</span>(<span class="vr">pla</span>, <span class="vr">timestamp</span>)
+
+<span class="cm"># impact</span>
+<span class="vr">result</span> = <span class="st">"Coaches and parents get instant, color-coded severity alerts"</span>
+<span class="vr">next_steps</span> = [<span class="st">"ML-based hit classification"</span>, <span class="st">"cloud scaling"</span>, <span class="st">"mobile push alerts"</span>]</div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a><a href="ClearHead_CaseStudy.pdf" target="_blank" class="proj-case">Case Study &#x2193;</a></div></div>
         </div>
 
         <div class="proj-card" style="transition-delay:.12s">
@@ -358,17 +365,21 @@
             <p>Cross-platform app for real-time biomechanical monitoring using MediaPipe pose estimation with personalized baseline calibration and slouch detection.</p>
             <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">OpenCV</span><span class="ptag">MediaPipe</span><span class="ptag">Cross-Platform</span></div>
           </div>
-          <div class="proj-detail"><div class="proj-detail-inner"><div class="proj-code"><span class="cm"># PostureGuard - biometric posture detection</span>
-<span class="kw">class</span> <span class="cl">PostureDetector</span>:
-    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="vr">self</span>):
-        <span class="vr">self</span>.pose = <span class="fn">mp.solutions.pose</span>
-        <span class="vr">self</span>.baseline = <span class="fn">calibrate_user</span>()
+          <div class="proj-detail"><div class="proj-detail-inner"><div class="proj-code"><span class="cm"># the problem</span>
+<span class="vr">context</span> = <span class="st">"Remote work + screen time = chronic back pain epidemic"</span>
+<span class="vr">goal</span> = <span class="st">"Turn any webcam into a real-time posture coach"</span>
 
-    <span class="kw">def</span> <span class="fn">analyze_frame</span>(<span class="vr">self</span>, <span class="vr">frame</span>):
-        <span class="vr">landmarks</span> = <span class="vr">self</span>.pose.<span class="fn">process</span>(<span class="vr">frame</span>)
-        <span class="vr">alignment</span> = <span class="fn">classify_spine</span>(<span class="vr">landmarks</span>)
-        <span class="kw">if</span> <span class="vr">alignment</span> == <span class="st">"slouch"</span>:
-            <span class="fn">async_notify</span>(<span class="st">"Sit up straight!"</span>)</div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a></div></div>
+<span class="cm"># how it works</span>
+<span class="kw">def</span> <span class="fn">monitor</span>():
+    <span class="vr">baseline</span> = <span class="fn">calibrate</span>(<span class="st">"user sits in ideal position"</span>)
+    <span class="vr">landmarks</span> = <span class="fn">mediapipe.detect</span>(<span class="nm">33</span>, <span class="st">"keypoints"</span>)  <span class="cm"># nose, shoulders, hips</span>
+    <span class="vr">spine_angle</span> = <span class="fn">calc_angle</span>(<span class="vr">ear</span>, <span class="vr">shoulder</span>, <span class="vr">hip</span>)
+    <span class="kw">if</span> <span class="fn">deviation</span>(<span class="vr">spine_angle</span>, <span class="vr">baseline</span>) &gt; <span class="nm">threshold</span>:
+        <span class="fn">alert</span>(<span class="st">"Sit up straight!"</span>)  <span class="cm"># only after sustained slouch</span>
+
+<span class="cm"># design choices</span>
+<span class="vr">privacy</span> = <span class="st">"All processing local, no video uploaded"</span>
+<span class="vr">next_steps</span> = [<span class="st">"session analytics"</span>, <span class="st">"stretch prompts"</span>, <span class="st">"dual-camera 3D tracking"</span>]</div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a><a href="PostureGuard_CaseStudy.pdf" target="_blank" class="proj-case">Case Study &#x2193;</a></div></div>
         </div>
 
         <div class="proj-card" style="transition-delay:.19s">
@@ -379,17 +390,17 @@
             <p>Engineered a custom one-handed Nintendo Switch controller by rewiring electronics in a custom-modeled enclosure using human-centered design.</p>
             <div class="proj-tags"><span class="ptag">CAD</span><span class="ptag">3D Printing</span><span class="ptag">Electronics</span><span class="ptag">Accessibility</span></div>
           </div>
-          <div class="proj-detail"><div class="proj-detail-inner"><div class="proj-code"><span class="cm">// adaptive controller - input remapping</span>
-<span class="kw">void</span> <span class="fn">setup</span>() {
-    <span class="fn">initPins</span>(<span class="vr">BUTTON_MAP</span>, <span class="nm">12</span>);
-    <span class="fn">loadProfile</span>(<span class="st">"one_hand_left"</span>);
-}
+          <div class="proj-detail"><div class="proj-detail-inner"><div class="proj-code"><span class="cm"># the problem</span>
+<span class="vr">challenge</span> = <span class="st">"Standard controllers exclude gamers with limited hand mobility"</span>
+<span class="vr">approach</span> = <span class="st">"Human-centered design: interview users, prototype, iterate"</span>
 
-<span class="kw">void</span> <span class="fn">loop</span>() {
-    <span class="vr">input</span> = <span class="fn">readButtons</span>();
-    <span class="vr">mapped</span> = <span class="fn">remapInput</span>(<span class="vr">input</span>, <span class="vr">profile</span>);
-    <span class="fn">sendToSwitch</span>(<span class="vr">mapped</span>);
-}</div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a></div></div>
+<span class="cm"># what I built</span>
+<span class="vr">enclosure</span> = <span class="fn">cad_model</span>(<span class="st">"ergonomic one-handed grip"</span>)
+<span class="vr">electronics</span> = <span class="fn">rewire</span>(<span class="st">"Switch Joy-Con internals into custom PCB layout"</span>)
+<span class="vr">prototype</span> = <span class="fn">sla_print</span>(<span class="vr">enclosure</span>)  <span class="cm"># rapid iteration with 3D printing</span>
+
+<span class="cm"># result</span>
+<span class="vr">outcome</span> = <span class="st">"Fully functional one-handed controller, tested with real users"</span></div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a></div></div>
         </div>
 
         <div class="proj-card" style="transition-delay:.26s">
@@ -400,13 +411,19 @@
             <p>Internal tool at Mysa that automatically generates STL and STEP files for fasteners by parsing text descriptions using Cursor AI.</p>
             <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">Cursor AI</span><span class="ptag">STL/STEP</span><span class="ptag">SolidWorks</span></div>
           </div>
-          <div class="proj-detail"><div class="proj-detail-inner"><div class="proj-code"><span class="cm"># fastener generator - parse &amp; build</span>
-<span class="kw">def</span> <span class="fn">generate_fastener</span>(<span class="vr">description</span>):
-    <span class="vr">params</span> = <span class="fn">parse_description</span>(<span class="vr">description</span>)
-    <span class="vr">model</span> = <span class="fn">build_cad_model</span>(<span class="vr">params</span>)
-    <span class="vr">model</span>.<span class="fn">export_stl</span>(<span class="st">"output/"</span>)
-    <span class="vr">model</span>.<span class="fn">export_step</span>(<span class="st">"output/"</span>)
-    <span class="kw">return</span> <span class="vr">model</span>.metadata</div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a></div></div>
+          <div class="proj-detail"><div class="proj-detail-inner"><div class="proj-code"><span class="cm"># the problem</span>
+<span class="vr">pain_point</span> = <span class="st">"Engineers manually model every fastener in SolidWorks"</span>
+<span class="vr">time_lost</span> = <span class="st">"Hours per week on repetitive CAD work"</span>
+
+<span class="cm"># what I built</span>
+<span class="kw">def</span> <span class="fn">generate</span>(<span class="vr">text_description</span>):
+    <span class="vr">specs</span> = <span class="fn">parse_with_cursor_ai</span>(<span class="vr">text_description</span>)
+    <span class="vr">model</span> = <span class="fn">build_parametric_model</span>(<span class="vr">specs</span>)
+    <span class="fn">export</span>(<span class="vr">model</span>, <span class="st">".stl"</span>, <span class="st">".step"</span>)
+
+<span class="cm"># impact</span>
+<span class="vr">result</span> = <span class="st">"30% reduction in manual CAD time at Mysa"</span>
+<span class="vr">adopted</span> = <span class="st">"Now used internally by the hardware engineering team"</span></div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a></div></div>
         </div>
 
         <div class="proj-card" style="transition-delay:.33s">
@@ -417,17 +434,19 @@
             <p>Arduino-based system integrating weather sensors and actuators to detect rain, humidity, and light, automatically controlling a sunroof mechanism.</p>
             <div class="proj-tags"><span class="ptag">Arduino</span><span class="ptag">Sensors</span><span class="ptag">Control Logic</span><span class="ptag">C++</span></div>
           </div>
-          <div class="proj-detail"><div class="proj-detail-inner"><div class="proj-code"><span class="cm">// weather sunroof - sensor fusion</span>
-<span class="kw">void</span> <span class="fn">loop</span>() {
-    <span class="vr">rain</span>    = <span class="fn">analogRead</span>(<span class="nm">RAIN_PIN</span>);
-    <span class="vr">humidity</span> = <span class="fn">dht.readHumidity</span>();
-    <span class="vr">light</span>   = <span class="fn">analogRead</span>(<span class="nm">LDR_PIN</span>);
+          <div class="proj-detail"><div class="proj-detail-inner"><div class="proj-code"><span class="cm"># the problem</span>
+<span class="vr">scenario</span> = <span class="st">"Sunroof left open + sudden rain = ruined interior"</span>
+<span class="vr">goal</span> = <span class="st">"Automate sunroof response to real-time weather conditions"</span>
 
-    <span class="kw">if</span> (<span class="vr">rain</span> &gt; <span class="nm">THRESHOLD</span> || <span class="vr">humidity</span> &gt; <span class="nm">85</span>)
-        <span class="fn">closeSunroof</span>();
-    <span class="kw">else if</span> (<span class="vr">light</span> &gt; <span class="nm">600</span>)
-        <span class="fn">openSunroof</span>();
-}</div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a></div></div>
+<span class="cm"># how it works</span>
+<span class="vr">sensors</span> = [<span class="st">"rain detector"</span>, <span class="st">"DHT humidity"</span>, <span class="st">"LDR light level"</span>]
+<span class="kw">if</span> <span class="vr">rain</span> <span class="kw">or</span> <span class="vr">humidity</span> &gt; <span class="nm">85</span>:
+    <span class="fn">close_sunroof</span>()  <span class="cm"># motor actuator via relay</span>
+<span class="kw">elif</span> <span class="vr">sunlight</span> &gt; <span class="nm">threshold</span>:
+    <span class="fn">open_sunroof</span>()
+
+<span class="cm"># key learning</span>
+<span class="vr">takeaway</span> = <span class="st">"Sensor fusion, control logic, and real-world actuator integration"</span></div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a></div></div>
         </div>
 
         <div class="proj-card" style="transition-delay:.40s">
@@ -438,16 +457,18 @@
             <p>Led a student team to design and prototype a custom jig for AMBICO Inc., validated for manufacturability. Won competitive industry pitch.</p>
             <div class="proj-tags"><span class="ptag">CAD</span><span class="ptag">Prototyping</span><span class="ptag">Team Lead</span><span class="ptag">Industry Client</span></div>
           </div>
-          <div class="proj-detail"><div class="proj-detail-inner"><div class="proj-code"><span class="cm"># AMBICO jig - parametric design</span>
-<span class="kw">class</span> <span class="cl">CuttingJig</span>:
-    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="vr">self</span>, <span class="vr">door_width</span>, <span class="vr">cut_depth</span>):
-        <span class="vr">self</span>.width = <span class="vr">door_width</span>
-        <span class="vr">self</span>.depth = <span class="vr">cut_depth</span>
+          <div class="proj-detail"><div class="proj-detail-inner"><div class="proj-code"><span class="cm"># the brief</span>
+<span class="vr">client</span> = <span class="st">"AMBICO Inc."</span>
+<span class="vr">ask</span> = <span class="st">"Design an adjustable jig for precision door cutting on-site"</span>
 
-    <span class="kw">def</span> <span class="fn">generate_model</span>(<span class="vr">self</span>):
-        <span class="vr">base</span> = <span class="fn">create_base_plate</span>(<span class="vr">self</span>.width)
-        <span class="vr">guides</span> = <span class="fn">add_cutting_guides</span>(<span class="vr">self</span>.depth)
-        <span class="kw">return</span> <span class="fn">assemble</span>(<span class="vr">base</span>, <span class="vr">guides</span>)</div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a></div></div>
+<span class="cm"># what we delivered</span>
+<span class="vr">my_role</span> = <span class="st">"Team lead: coordinated design, prototyping, and client pitch"</span>
+<span class="vr">process</span> = [<span class="st">"parametric CAD"</span>, <span class="st">"rapid prototyping"</span>, <span class="st">"manufacturability review"</span>]
+<span class="vr">validation</span> = <span class="fn">test_with_client</span>(<span class="st">"confirmed production-ready"</span>)
+
+<span class="cm"># result</span>
+<span class="vr">outcome</span> = <span class="st">"1st Place, uOttawa Design Day 2024"</span>
+<span class="vr">competed_against</span> = <span class="st">"Full cohort of engineering design teams"</span></div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a></div></div>
         </div>
 
       </div>

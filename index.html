@@ -150,7 +150,7 @@
   .proj-detail{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
   .proj-card.expanded .proj-detail{max-height:600px}
   .proj-detail-inner{padding:0 18px 16px;border-top:1px solid rgba(255,255,255,.08);margin-top:2px}
-  .proj-code{font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.75;padding-top:14px;white-space:pre-wrap}
+  .proj-code{font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.75;padding-top:14px;white-space:pre-wrap;word-break:break-word;overflow-wrap:break-word}
   .proj-code .cm{color:#6a6a6a}
   .proj-code .kw{color:#c586c0}
   .proj-code .fn{color:#dcdcaa}
@@ -190,6 +190,8 @@
     .skills-wrap,.exp-wrap{padding:0 24px 40px}
     .proj-wrap{padding:30px 24px 40px}
     .proj-grid{grid-template-columns:1fr}
+    .proj-code{font-size:.85rem;line-height:1.6}
+    .proj-case{margin-left:0;margin-top:8px;display:block;text-align:center;width:100%;max-width:200px;margin-left:auto;margin-right:auto}
     .about-wrap{padding:36px 24px}
     .about-collage{grid-template-columns:1fr 1fr;gap:12px}
     .about-photo,.about-photo:nth-child(1),.about-photo:nth-child(2),.about-photo:nth-child(3),.about-photo:nth-child(4){transform:translateY(14px)!important}
@@ -197,6 +199,13 @@
     .contact-wrap{padding:40px 24px 50px}
     .contact-card{padding:32px 20px}
     footer{padding:24px}
+  }
+  @media(max-width:480px){
+    .proj-code{font-size:.82rem;line-height:1.55}
+    .proj-case{font-size:.62rem;padding:2px 10px;max-width:180px}
+    .proj-body{padding:14px 16px}
+    .proj-detail-inner{padding:0 14px 12px}
+    .ptag{font-size:.6rem;padding:1px 6px}
   }
 </style>
 </head>
@@ -286,7 +295,7 @@
       <div class="edu-entry" style="transition-delay:.1s">
         <div class="edu-entry-header"><h3>Memorial University of Newfoundland</h3><span class="exp-date">Sep 2024 - Apr 2029</span></div>
         <div class="exp-company-row"><span class="edu-degree">B.Eng. Mechatronics Engineering (Co-op)</span><span class="exp-location">St. John's, NL</span></div>
-        <div class="edu-notes">GPA 3.5 · VP Jr. Academic, MUSE · Mechatronics Class Representative (Class of 2029) · Student Mentor</div>
+        <div class="edu-notes">GPA 3.5 · VP Jr. Academic, Engineering Society 'B' · Mechatronics Class Representative (Class of 2029) · Student Mentor</div>
       </div>
 
       <div class="exp-section-label">Work Experience</div>
@@ -314,7 +323,7 @@
 
       <div class="exp-entry" style="transition-delay:.4s">
         <div class="exp-entry-header"><h3>VP Junior Academic</h3><span class="exp-date">Jan 2025 - Present</span></div>
-        <div class="exp-company-row"><span class="exp-company">Memorial University Engineering Society "B"</span></div>
+        <div class="exp-company-row"><span class="exp-company">Memorial University Engineering Society 'B'</span></div>
         <ul>
           <li>Advocating for first and second-year engineering students at the faculty level.</li>
           <li>Organising academic events, study resources, and student support initiatives.</li>

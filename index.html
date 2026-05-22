@@ -377,8 +377,38 @@
 <span class="vr">result</span> = <span class="st">"Coaches and parents get instant, color-coded severity alerts"</span>
 <span class="vr">next_steps</span> = [<span class="st">"ML-based hit classification"</span>, <span class="st">"cloud scaling"</span>, <span class="st">"mobile push alerts"</span>]</div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a><a href="ClearHead_CaseStudy.pdf" target="_blank" class="proj-case">Case Study &#x2193;</a></div></div>
         </div>
-
+        
         <div class="proj-card" style="transition-delay:.12s">
+  <div class="proj-bar"><span class="cd cd-r"></span><span class="cd cd-y"></span><span class="cd cd-g"></span><span class="proj-tab">kaizen.py</span></div>
+  <div class="proj-body">
+    <div class="proj-badge">AI / Fintech</div>
+    <h3>Kaizen: AI-Driven Financial Education App</h3>
+    <p>Multi-agent financial education platform built on IBM watsonx Orchestrate, featuring three specialized AI agents and a RAG-powered chat advisor.</p>
+    <div class="proj-tags"><span class="ptag">IBM watsonx</span><span class="ptag">Python</span><span class="ptag">Spring Boot</span><span class="ptag">RAG</span><span class="ptag">Multi-Agent</span></div>
+  </div>
+  <div class="proj-detail"><div class="proj-detail-inner"><div class="proj-code"><span class="cm"># the problem</span>
+<span class="vr">gap</span> = <span class="st">"Young people lack personalized, accessible financial guidance"</span>
+<span class="vr">goal</span> = <span class="st">"Make financial literacy feel like a conversation, not a textbook"</span>
+
+<span class="cm"># how it works</span>
+<span class="vr">agents</span> = {
+    <span class="st">"Profiler"</span>:   <span class="st">"learns user's financial situation and goals"</span>,
+    <span class="st">"Strategist"</span>: <span class="st">"builds personalized savings and budgeting plans"</span>,
+    <span class="st">"Advisor"</span>:    <span class="st">"answers questions via RAG-powered knowledge base"</span>
+}
+
+<span class="kw">def</span> <span class="fn">kaizen</span>(<span class="vr">user_input</span>):
+    <span class="vr">profile</span>   = <span class="fn">Profiler.assess</span>(<span class="vr">user_input</span>)
+    <span class="vr">strategy</span>  = <span class="fn">Strategist.plan</span>(<span class="vr">profile</span>)
+    <span class="kw">return</span> <span class="fn">Advisor.chat</span>(<span class="vr">strategy</span>, <span class="vr">rag_context</span>)
+
+<span class="cm"># result</span>
+<span class="vr">outcome</span>   = <span class="st">"Personalized financial coaching, at scale"</span>
+<span class="vr">built_for</span> = <span class="st">"IBM SkillsBuild AI Experiential Learning Lab"</span></div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a></div></div>
+</div>
+
+
+        <div class="proj-card" style="transition-delay:.19s">
           <div class="proj-bar"><span class="cd cd-r"></span><span class="cd cd-y"></span><span class="cd cd-g"></span><span class="proj-tab">postureguard.py</span></div>
           <div class="proj-body">
             <div class="proj-badge">Computer Vision</div>
@@ -403,7 +433,7 @@
 <span class="vr">next_steps</span> = [<span class="st">"session analytics"</span>, <span class="st">"stretch prompts"</span>, <span class="st">"dual-camera 3D tracking"</span>]</div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a><a href="PostureGuard_CaseStudy.pdf" target="_blank" class="proj-case">Case Study &#x2193;</a></div></div>
         </div>
 
-        <div class="proj-card" style="transition-delay:.19s">
+        <div class="proj-card" style="transition-delay:.26s">
           <div class="proj-bar"><span class="cd cd-r"></span><span class="cd cd-y"></span><span class="cd cd-g"></span><span class="proj-tab">controller.ino</span></div>
           <div class="proj-body">
             <div class="proj-badge">Accessibility</div>
@@ -424,7 +454,7 @@
 <span class="vr">outcome</span> = <span class="st">"Fully functional one-handed controller, tested with real users"</span></div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a></div></div>
         </div>
 
-        <div class="proj-card" style="transition-delay:.26s">
+        <div class="proj-card" style="transition-delay:.33s">
           <div class="proj-bar"><span class="cd cd-r"></span><span class="cd cd-y"></span><span class="cd cd-g"></span><span class="proj-tab">fastener_gen.py</span></div>
           <div class="proj-body">
             <div class="proj-badge">Internal Tooling</div>
@@ -447,7 +477,7 @@
 <span class="vr">adopted</span> = <span class="st">"Now used internally by the hardware engineering team"</span></div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a></div></div>
         </div>
 
-        <div class="proj-card" style="transition-delay:.33s">
+        <div class="proj-card" style="transition-delay:.40s">
           <div class="proj-bar"><span class="cd cd-r"></span><span class="cd cd-y"></span><span class="cd cd-g"></span><span class="proj-tab">sunroof.ino</span></div>
           <div class="proj-body">
             <div class="proj-badge">IoT / Control</div>
@@ -470,7 +500,7 @@
 <span class="vr">takeaway</span> = <span class="st">"Sensor fusion, control logic, and real-world actuator integration"</span></div><a href="https://github.com/oliviabevverge" target="_blank" class="proj-gh">View on GitHub &rarr;</a></div></div>
         </div>
 
-        <div class="proj-card" style="transition-delay:.40s">
+        <div class="proj-card" style="transition-delay:.47s">
           <div class="proj-bar"><span class="cd cd-r"></span><span class="cd cd-y"></span><span class="cd cd-g"></span><span class="proj-tab">ambico_design.py</span></div>
           <div class="proj-body">
             <div class="proj-badge">1st Place - uOttawa Design Day</div>

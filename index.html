@@ -88,6 +88,15 @@
   .exp-entry{position:relative;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);opacity:0;transform:translateY(12px);transition:opacity .4s ease,transform .4s ease}
   .exp-entry:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
   .exp-entry.visible{opacity:1;transform:none}
+  .exp-company-group{position:relative;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+  .exp-company-group:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .exp-company-group-header{display:flex;justify-content:space-between;align-items:center;width:100%;gap:12px;margin-bottom:12px}
+  .exp-company-group .exp-company{font-size:.82rem;color:var(--accent);font-weight:700;font-style:italic}
+  .exp-company-group .exp-location{font-size:.78rem;color:var(--subtle);white-space:nowrap}
+  .exp-company-group-body{padding-left:0}
+  .exp-company-group .exp-entry{margin-bottom:16px;padding-bottom:0;border-bottom:none}
+  .exp-company-group .exp-entry + .exp-entry{margin-top:10px}
+  .exp-company-group .exp-entry:last-child{margin-bottom:0;padding-bottom:0}
   .exp-entry::before{content:'';position:absolute;left:-31px;top:8px;width:24px;height:2px;background:var(--copper)}
   .exp-entry-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
   .exp-entry h3{font-family:'Inter',sans-serif;font-size:.9rem;color:var(--dark);font-weight:600}
@@ -109,22 +118,48 @@
   .exp-section-label{position:relative;font-family:'Inter',sans-serif;font-size:1.4rem;font-weight:700;color:var(--dark);margin:24px 0 18px}
   .exp-section-label:first-child{margin-top:0}
 
+  .community-wrap{background:transparent;padding:30px 64px 42px;border-top:1px solid var(--border);margin-top:24px}
+  .community-inner{max-width:1060px;margin:0 auto}
+  .community-title{font-family:'Inter',sans-serif;font-size:1.4rem;color:var(--dark);font-weight:700;margin-bottom:10px}
+  .community-subtitle{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:16px;max-width:760px}
+  .community-carousel{position:relative;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.7)}
+  .community-slide{display:none;padding:16px}
+  .community-slide.active{display:block}
+  .community-slide img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9;border-radius:10px}
+  .community-slide-body{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding-top:10px}
+  .community-slide h3{font-family:'Inter',sans-serif;font-size:.9rem;color:var(--dark);font-weight:700;margin-bottom:2px}
+  .community-slide p{font-size:.78rem;color:var(--muted);line-height:1.5}
+  .community-nav{display:flex;gap:8px;align-items:center}
+  .community-nav button{border:1px solid var(--border);background:#fff;border-radius:999px;width:30px;height:30px;cursor:pointer;color:var(--dark);font-size:.85rem;display:grid;place-items:center;transition:all .2s}
+  .community-nav button:hover{border-color:var(--accent);color:var(--accent)}
+  .community-dots{display:flex;justify-content:center;gap:6px;margin-top:10px}
+  .community-dots span{width:7px;height:7px;border-radius:50%;background:rgba(0,0,0,.18);display:block;cursor:pointer}
+  .community-dots span.active{background:var(--accent)}
+
   .about-wrap{padding:50px 64px;border-top:1px solid var(--border);max-width:1200px;margin:0 auto}
   .about-title{font-family:'Inter',sans-serif;font-size:1.4rem;color:var(--dark);font-weight:700;margin-bottom:10px}
   .about-text{font-size:.94rem;color:var(--muted);line-height:1.85;max-width:none;font-weight:400;margin-bottom:32px}
   .about-collage{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .about-collage-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
   .about-photo{border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease,box-shadow .3s}
   .about-photo.visible{opacity:1;transform:none}
   .about-photo:nth-child(1){transform:rotate(-1.5deg) translateY(14px)}
   .about-photo:nth-child(2){transform:rotate(1deg) translateY(14px)}
   .about-photo:nth-child(3){transform:rotate(-1.8deg) translateY(14px)}
   .about-photo:nth-child(4){transform:rotate(1.2deg) translateY(14px)}
+  .about-photo:nth-child(5){transform:rotate(1.6deg) translateY(14px)}
+  .about-photo:nth-child(6){transform:rotate(-1.1deg) translateY(14px)}
+  .about-photo:nth-child(7){transform:rotate(1.3deg) translateY(14px)}
   .about-photo.visible:nth-child(1){transform:rotate(-1.5deg)}
   .about-photo.visible:nth-child(2){transform:rotate(1deg)}
   .about-photo.visible:nth-child(3){transform:rotate(-1.8deg)}
   .about-photo.visible:nth-child(4){transform:rotate(1.2deg)}
-  .about-photo:hover{box-shadow:0 8px 30px rgba(0,0,0,.14);transform:rotate(0deg) scale(1.02)!important}
+  .about-photo.visible:nth-child(5){transform:rotate(1.6deg)}
+  .about-photo.visible:nth-child(6){transform:rotate(-1.1deg)}
+  .about-photo.visible:nth-child(7){transform:rotate(1.3deg)}
+  .about-photo:hover{box-shadow:0 8px 30px rgba(0,0,0,.14);animation:photoWiggle .3s ease-in-out}
   .about-photo img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:3/4}
+  @keyframes photoWiggle{0%,100%{transform:rotate(0deg) scale(1.02)}25%{transform:rotate(-1deg) scale(1.02)}50%{transform:rotate(1deg) scale(1.02)}75%{transform:rotate(-.5deg) scale(1.02)}}
 
   .proj-wrap{background:var(--cream);padding:40px 64px 50px;border-top:1px solid var(--border)}
   .proj-inner{max-width:1060px;margin:0 auto}
@@ -226,7 +261,7 @@
   <div class="hero-content">
     <p class="hero-greeting">Hi! Welcome to my portfolio.</p>
     <h1>I'm Olivia.</h1>
-    <p class="hero-bio">I am a Term 4 Mechatronics student at Memorial University of Newfoundland, passionate about biomedical engineering, robotics, and the way the world works. I love working on problems that don't fit neatly into one discipline. Whether it's programming sensors, designing an enclosure in CAD, or coordinating a team through a real industry brief, I bring a scientific approach and a hands-on mindset.</p>
+    <p class="hero-bio">I am a Term 4 Mechatronics student at Memorial University of Newfoundland, passionate about biomedical engineering, robotics, and the way the world works. I love working on problems that don't fit neatly into one discipline. Whether it's programming sensors, designing an enclosure in CAD, or coordinating a team through a real industry brief, I bring a scientific approach and a hands-on mindset. Click through the elements below to learn more about my experience.</p>
     <div class="hero-links">
       <a href="Olivia_Verge_Resume.pdf" target="_blank">Resume</a>
       <a href="https://github.com/oliviabevverge" target="_blank">GitHub</a>
@@ -301,6 +336,17 @@
 
       <div class="exp-section-label">Work Experience</div>
 
+      <div class="exp-entry" style="transition-delay:.15s">
+        <div class="exp-entry-header"><h3>Software &amp; Electrical Team Member</h3><span class="exp-date">May 2026 - Present</span></div>
+        <div class="exp-company-row"><span class="exp-company">Memorial Medtech</span><span class="exp-location">St. John's, NL</span></div>
+        <ul>
+          <li>Collaborated with an interdisciplinary team to support electrical and software initiatives and projects.</li>
+          <li>Led the front-end design of the current website landing page.</li>
+          <li>Assisted with logistics, including faculty coordination, outreach presentations, and cross-club interactions.</li>
+          <li>Reviewed documentation to support accreditation of the membership and the creation of a constitution.</li>
+        </ul>
+      </div>
+
       <div class="exp-entry" style="transition-delay:.2s">
         <div class="exp-entry-header"><h3>Hardware Product Engineer (Co-op)</h3><span class="exp-date">Jan 2026 - May 2026</span></div>
         <div class="exp-company-row"><span class="exp-company">Mysa</span><span class="exp-location">St. John's, NL</span></div>
@@ -311,16 +357,36 @@
           <li>Assisted in PCB assembly, creation of spacing jigs for ease of soldering, and PCB rework.</li>
           <li>Collaborated with cross-functional teams to maintain documentation and contribute to accurate product releases.</li>
         </ul>
+
       </div>
       
-       <div class="exp-entry" style="transition-delay:.4s">
-        <div class="exp-entry-header"><h3>President</h3><span class="exp-date">May 2026 - Present</span></div>
-        <div class="exp-company-row"><span class="exp-company">Memorial University Engineering Society 'B'</span></div>
-        <ul>
-          <li>Coordinatting collaboration between internal members of Society 'B', and externally across engineering cohorts.</li>
-          <li>Planning and executing activites for the engineering student body.</li>
-          <li>Organising academic events, study resources, and student support initiatives.</li>
-        </ul>
+       <div class="exp-company-group">
+        <div class="exp-company-group-header">
+          <span class="exp-company">Memorial University Engineering Society 'B'</span>
+          <span class="exp-location">St. John's, NL</span>
+        </div>
+        <div class="exp-company-group-body">
+          <div class="exp-entry" style="transition-delay:.4s">
+            <div class="exp-entry-header"><h3>President</h3><span class="exp-date">May 2026 - Present</span></div>
+            <ul>
+              <li>Coordinatting collaboration between 12 direct reporting members of Society 'B', and externally across engineering cohorts.</li>
+              <li>Supported VPs and their directors in planning social events, academic support, conference budgeting </li>
+              <li>Planning and executing activites for the engineering student body.</li>
+              <li>Organising academic events, study resources, and student support initiatives.</li>
+              <li>Collaborated with the opposite society to ensure continuity within the faculty, and year round student success and engagement.</li>
+            </ul>
+          </div>
+
+          <div class="exp-entry" style="transition-delay:.45s">
+            <div class="exp-entry-header"><h3>VP Junior Academic</h3><span class="exp-date">Jan 2025 - May 2026</span></div>
+            <ul>
+              <li>Advocating for first and second-year engineering students at the faculty level.</li>
+              <li>Lead a team of junior students to organize an orientation for over 300 incoming engineering students.</li>
+              <li>Coordinated merchandise orders, sponsorships, and internal presentations for engineering one students.</li>
+              <li>Represented students alongside VP academic, serving on the Faculty Council, Council of Undergraduate Studies, and the Academic Integrity Subcommittee</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div class="exp-entry" style="transition-delay:.3s">
@@ -332,15 +398,59 @@
           <li>Collaborated on component sourcing and multi-disciplinary engineering workflows to streamline production output.</li>
         </ul>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div class="exp-entry" style="transition-delay:.4s">
-        <div class="exp-entry-header"><h3>VP Junior Academic</h3><span class="exp-date">Jan 2025 - May 2026</span></div>
-        <div class="exp-company-row"><span class="exp-company">Memorial University Engineering Society 'B'</span></div>
-        <ul>
-          <li>Advocating for first and second-year engineering students at the faculty level.</li>
-          <li>Organising academic events, study resources, and student support initiatives.</li>
-        </ul>
+<div class="community-wrap">
+  <div class="community-inner">
+    <div class="community-title">Through the Halls</div>
+    <p class="community-subtitle">A few snapshots from leadership, collaboration, and the student community that shaped my experience beyond the classroom.</p>
+    <div class="community-carousel">
+      <div class="community-slide active">
+        <img src="socphoto.JPG" alt="Olivia Verge with engineering leadership and community members" />
+        <div class="community-slide-body">
+          <div>
+            <h3>Engineering Society 'B' leadership</h3>
+            <p>Leadership, collaboration, and the people behind the work.</p>
+          </div>
+          <div class="community-nav">
+            <button type="button" class="community-prev" aria-label="Previous">←</button>
+            <button type="button" class="community-next" aria-label="Next">→</button>
+          </div>
+        </div>
       </div>
+      <div class="community-slide">
+        <img src="about-1.jpg" alt="Design team collaboration and hands-on engineering work" />
+        <div class="community-slide-body">
+          <div>
+            <h3>Design team collaboration</h3>
+            <p>Hands-on teamwork, problem solving, and building together.</p>
+          </div>
+          <div class="community-nav">
+            <button type="button" class="community-prev" aria-label="Previous">←</button>
+            <button type="button" class="community-next" aria-label="Next">→</button>
+          </div>
+        </div>
+      </div>
+      <div class="community-slide">
+        <img src="blackall.JPG" alt="Campus leadership and community connection" />
+        <div class="community-slide-body">
+          <div>
+            <h3>Campus community</h3>
+            <p>Moments that reflect the energy of student leadership and connection.</p>
+          </div>
+          <div class="community-nav">
+            <button type="button" class="community-prev" aria-label="Previous">←</button>
+            <button type="button" class="community-next" aria-label="Next">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="community-dots" aria-label="Carousel pagination">
+      <span class="active" data-index="0"></span>
+      <span data-index="1"></span>
+      <span data-index="2"></span>
     </div>
   </div>
 </div>
@@ -537,6 +647,11 @@
     <div class="about-photo" style="transition-delay:.2s"><img src="about-3.jpg" alt="Ziplining adventure"/></div>
     <div class="about-photo" style="transition-delay:.3s"><img src="about-4.jpg" alt="Exploring the coast"/></div>
   </div>
+  <div class="about-collage-row">
+    <div class="about-photo" style="transition-delay:.35s"><img src="about5.JPG" alt="More moments from life outside engineering"/></div>
+    <div class="about-photo" style="transition-delay:.4s"><img src="about6.JPG" alt="More adventures and hobbies"/></div>
+    <div class="about-photo" style="transition-delay:.45s"><img src="about7.JPG" alt="More favorite snapshots"/></div>
+  </div>
 </div>
 
 <!-- Contact -->
@@ -556,7 +671,7 @@
 
 <footer>
   <p>Made with <span class="footer-heart">&hearts;<span class="egg">and a mass of caffeine</span></span> by Olivia Verge</p>
-  <p class="footer-built">Designed &amp; hand-coded by Olivia</p>
+  <p class="footer-built">Designed &amp; coded by Olivia</p>
 </footer>
 
 <script>
@@ -712,6 +827,24 @@
       if(!wasOpen) card.classList.add('expanded');
     });
   });
+
+  const communitySlides=document.querySelectorAll('.community-slide');
+  const communityDots=document.querySelectorAll('.community-dots span');
+  let communityIndex=0;
+
+  function showCommunitySlide(index){
+    communitySlides.forEach((slide,i)=>slide.classList.toggle('active',i===index));
+    communityDots.forEach((dot,i)=>dot.classList.toggle('active',i===index));
+  }
+
+  function changeCommunitySlide(delta){
+    communityIndex=(communityIndex+delta+communitySlides.length)%communitySlides.length;
+    showCommunitySlide(communityIndex);
+  }
+
+  document.querySelectorAll('.community-next').forEach(btn=>btn.addEventListener('click',()=>changeCommunitySlide(1)));
+  document.querySelectorAll('.community-prev').forEach(btn=>btn.addEventListener('click',()=>changeCommunitySlide(-1)));
+  communityDots.forEach(dot=>dot.addEventListener('click',()=>{communityIndex=Number(dot.dataset.index);showCommunitySlide(communityIndex);}));
 
   var aboutObs=new IntersectionObserver(function(entries){
     entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});

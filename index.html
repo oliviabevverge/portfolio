@@ -126,6 +126,7 @@
   .community-slide{display:none;padding:16px}
   .community-slide.active{display:block}
   .community-slide img{width:100%;display:block;object-fit:cover;aspect-ratio:16/9;border-radius:10px}
+  .community-slide-portrait img{width:auto;height:min(72vh,760px);max-width:100%;aspect-ratio:auto;object-fit:contain;margin:0 auto}
   .community-slide-body{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding-top:10px}
   .community-slide h3{font-family:'Inter',sans-serif;font-size:.9rem;color:var(--dark);font-weight:700;margin-bottom:2px}
   .community-slide p{font-size:.78rem;color:var(--muted);line-height:1.5}
@@ -436,6 +437,32 @@
         </div>
       </div>
       <div class="community-slide">
+        <img src="assets/images/leadership-conference.jpg" alt="Olivia Verge with fellow engineering student leaders at a conference" />
+        <div class="community-slide-body">
+          <div>
+            <h3>Engineering leadership conference</h3>
+            <p>Representing Memorial alongside fellow engineering student leaders.</p>
+          </div>
+          <div class="community-nav">
+            <button type="button" class="community-prev" aria-label="Previous">←</button>
+            <button type="button" class="community-next" aria-label="Next">→</button>
+          </div>
+        </div>
+      </div>
+      <div class="community-slide community-slide-portrait">
+        <img src="assets/images/engineering-alumni-event.jpg" alt="Olivia Verge with Memorial engineering alumni and community members at an alumni event" />
+        <div class="community-slide-body">
+          <div>
+            <h3>Engineering alumni event</h3>
+            <p>Invited to connect with Memorial alumni and community leaders.</p>
+          </div>
+          <div class="community-nav">
+            <button type="button" class="community-prev" aria-label="Previous">←</button>
+            <button type="button" class="community-next" aria-label="Next">→</button>
+          </div>
+        </div>
+      </div>
+      <div class="community-slide">
         <img src="assets/images/blackall.JPG" alt="Campus leadership and community connection" />
         <div class="community-slide-body">
           <div>
@@ -453,6 +480,8 @@
       <span class="active" data-index="0"></span>
       <span data-index="1"></span>
       <span data-index="2"></span>
+      <span data-index="3"></span>
+      <span data-index="4"></span>
     </div>
   </div>
 </div>

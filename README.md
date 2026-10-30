@@ -2,6 +2,13 @@
 
 This repository contains the source code for my personal portfolio website. The site is a static front-end built with HTML and CSS to showcase my skills, projects, experience, and contact information. It is intended to be hosted on GitHub Pages or any static site host.
 
+## Project Structure
+
+- `index.html` — portfolio page
+- `assets/images/` — profile, project-card, community, and personal photos
+- `docs/resumes/` — resume PDFs
+- `docs/case-studies/` — project case-study PDFs
+
 ## About
 
 This portfolio presents:
